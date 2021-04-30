@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Смартфон Samsung Galaxy A52",
+    "img": "/image/a_52.jpg",
+    "price": "100$"
+  },
+  {
+    "name": "Смартфон Samsung Galaxy A32",
+    "img": "/image/a_32.jpg",
+    "price": "100$"
+  },
+  {
+    "name": "Смартфон Samsung Galaxy A72",
+    "img": "/image/a_72.jpg",
+    "price": "100$"
+  },
+  {
+    "name": "Смартфон Samsung Galaxy S21",
+    "img": "/image/s_52.jpg",
+    "price": "100$"
+  }
+]
