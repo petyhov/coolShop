@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const phonesRouter = require("./phones/phones.route");
+const ordersRouter = require("./usersOrder/orders.route");
 
 dotenv.config();
 
@@ -30,10 +31,7 @@ function initMiddlewares() {
   server.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "*");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-    );
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
   });
 
@@ -45,6 +43,7 @@ function initMiddlewares() {
 
 function initRoutes() {
   server.use("/phones", phonesRouter);
+  server.use("/orders", ordersRouter);
 }
 
 async function connectDatabase() {
@@ -52,6 +51,7 @@ async function connectDatabase() {
     .connect(MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useCreateIndex: true,
     })
     .then(
       () => {
