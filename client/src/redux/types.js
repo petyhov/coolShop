@@ -4,3 +4,4 @@ export const ADD_PHONE = "ADD_PHONE";
 export const INCREMENT_ITEM = "INCREMENT_ITEM";
 export const DECREMENT_ITEM = "DECREMENT_ITEM";
 export const SET_LOADER = "SET_LOADER";
+export const SET_EMPTY_CART = "SET_EMPTY_CART";

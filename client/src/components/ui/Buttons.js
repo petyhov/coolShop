@@ -40,7 +40,12 @@ export const CartButton = styled(DefaultButton)`
 `;
 
 export const FormButton = styled(BuyButton)`
+background-color: ${({ active }) => active ? "green" : "gray"};
   padding: 5px 40px;
+  cursor: ${({ active }) => active ? "pointer" : "auto"};
+  &:hover {
+    transform: ${({ active }) => active ? "scale(1.1)" : "scale(1)"};
+  }
 `;
 
 export const CartControlBtn = styled(DefaultButton)`

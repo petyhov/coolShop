@@ -1,7 +1,8 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 import api from "../api";
 
-import { setLoader, setPhones } from "./actions";
+import { setLoader, setPhones, setEmptyCart } from "./actions";
 
 export const fetchPhones = () => (dispatch) => {
   dispatch(setLoader(true));
@@ -16,11 +17,21 @@ export const fetchPhones = () => (dispatch) => {
 };
 
 export const addOrder = (data) => (dispatch) => {
-  // dispatch(setLoader(true));
+  dispatch(setLoader(true));
   try {
     axios.post(`${api}/orders`, data).then(({ data, status }) => {
       if (status === 201) {
-        alert("order received");
+        dispatch(setEmptyCart());
+        dispatch(setLoader(false));
+        toast.success('received', {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       }
     });
   } catch (error) {

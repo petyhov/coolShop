@@ -23,7 +23,6 @@ function App() {
     <>
       <GlobalStyle />
       <Header />
-
       <Suspense fallback={<MyLoader />}>
         {isLoading ? (
           <MyLoader />

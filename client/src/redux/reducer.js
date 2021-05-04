@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-import { setPhones, setActivePhone, addPhone, incrementItem, decrementItem, setLoader } from "./actions";
+import { setPhones, setActivePhone, addPhone, incrementItem, decrementItem, setLoader, setEmptyCart } from "./actions";
 
 const initialState = {
   phones: [],
@@ -50,6 +50,7 @@ const reducer = createReducer(initialState, {
     const newCart = { ...state.cart, [payload]: { ...phone, items: phone.items + 1 } };
     return { ...state, cart: newCart, sum: totalPrice(newCart) };
   },
+  [setEmptyCart]: (state, action) => ({ ...state, cart: {}, sum: 0 }),
 });
 
 export default reducer;
